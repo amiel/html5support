@@ -6,7 +6,7 @@ Placeholder text as an extremely simple jquery plugin.
 
 === HTML
 
-	<input type="text" id="search" data-tabularosa="Search Here" name="q" />
+	<input type="text" id="search" placeholder="Search Here" name="q" />
 	
 == jQuery
 

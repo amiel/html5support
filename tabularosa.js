@@ -10,7 +10,7 @@ $.fn.tabularosa = function(value) {
 	return this.each(function() {
 		var self = $(this),
 			klass = 'tabularosa',
-			value = value || self.attr('data-tabularosa'),
+			value = value || self.attr('placeholder'),
 			set_value = function() {
 				if ($.trim(self.val()) == '' || self.val() == value)
 					self.val(value).addClass(klass);
