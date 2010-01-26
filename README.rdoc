@@ -1,0 +1,13 @@
+= Tabularosa
+
+Placeholder text as an extremely simple jquery plugin.
+
+== Example
+
+=== HTML
+
+	<input type="text" id="search" data-tabularosa="Search Here" name="q" />
+	
+== jQuery
+
+	$('#search').tabularosa();
