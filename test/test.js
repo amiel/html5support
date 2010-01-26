@@ -16,7 +16,7 @@ $(document).ready(function() {
 	} else {
 		test("not webkit support test", function() {
 			var input = $('#with_placeholder'),
-				expected_placeholder_value = $.browser.msie ? "foobar", undefined;
+				expected_placeholder_value = $.browser.msie ? "foobar" : undefined;
 			equal(input[0].placeholder, expected_placeholder_value, "elements placeholder accessor should be undefined");
 		
 			input.tabularosa();
