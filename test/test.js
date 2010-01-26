@@ -1,50 +1,67 @@
 $(document).ready(function() {
 
-	module("placeholder attribute");
-
-	// browser specific tests for now until we are sure that element.placeholder is a good test for functionality
-
+	
 	if ($.browser.webkit) {
-		test("webkit specific support test", function() {
+		module("Webkit");
+		test("should support the fancy attributes", function() {
+			equal(HTML5Support.supports_attribute('placeholder'), true, "should support placeholder attribute");
+			equal(HTML5Support.supports_attribute('autofocus'), true, "should support autofocus attribute");
+		});
+	} else {
+		module("Non-webkit browsers");
+		test("should not support fancy attributes", function() {
+			equal(HTML5Support.supports_attribute('placeholder'), false, "should not support placeholder attribute");
+			equal(HTML5Support.supports_attribute('autofocus'), false, "should not support autofocus attribute");
+		});
+	}
+	
+	module("placeholder attribute");
+	if (HTML5Support.supports_attribute('placeholder')) {
+		test("with placeholder support", function() {
 			var input = $('#with_placeholder');
 			equal(input[0].placeholder, "foobar", "elements placeholder accessor should have the placeholder value");
 		
-			input.tabularosa();
+			input.placeholder();
 			equal(input[0].className, "");
 			equal(input.val(), "");
 		});
 	} else {
-		test("not webkit support test", function() {
+		test("without placeholder support", function() {
 			var input = $('#with_placeholder'),
 				expected_placeholder_value = $.browser.msie ? "foobar" : undefined;
 			equal(input[0].placeholder, expected_placeholder_value, "elements placeholder accessor should be undefined");
 		
-			input.tabularosa();
+			input.placeholder();
 			equal(input[0].className, "placeholder");
 			equal(input.val(), "foobar");
 		});
 	}
 	
+	module("autofocus attribute");
+	if (HTML5Support.supports_attribute('autofocus')) {
+		test("with autofocus support", function() {
+			var input = $('#autofocus_test'),
+				input_has_been_focused = false;
+			
+			input.focus(function() {
+				input_has_been_focused = true;
+			});
+			
+			input.autofocus();
+			ok(!input_has_been_focused, 'input should not have been focused on call to autofocus');
+		});
+	} else {
+		test("without placeholder support", function() {
+			var input = $('#autofocus_test'),
+				input_has_been_focused = false;
+			
+			input.focus(function() {
+				input_has_been_focused = true;
+			});
+			
+			input.autofocus();
+			ok(input_has_been_focused, 'input should have been focused on call to autofocus');
+		});
+	}
 	
-	
-	module("without placeholder attribute");
-	test("set manually", function() {
-		var input = $('#no_placeholder_manual');
-		ok(!input[0].placeholder, "elements placeholder accessor should be undefined");
-				
-		input.tabularosa("bazfoo");
-		equal(input[0].className, "placeholder");
-		equal(input.val(), "bazfoo");
-	});
-	
-	
-	test("without setting manually should do nothing", function() {
-		var input = $('#no_placeholder_nothing');
-		ok(!input[0].placeholder, "elements placeholder accessor should be undefined");
-				
-		input.tabularosa();
-		equal(input[0].className, "");
-		equal(input.val(), "");
-	});
-		
 });

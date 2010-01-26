@@ -1,13 +1,16 @@
-= Tabularosa
+= HTML 5 Support
 
-Placeholder text as an extremely simple jquery plugin.
+Support certain HTML 5 attributes with javascript, but only if the browser doesn't already support them.
+
+Currently supports the placeholder attribute and the autofocus attribute.
 
 == Example
 
 === HTML
-
-	<input type="text" id="search" placeholder="Search Here" name="q" />
+	
+	<input type="text" autofocus />
+	<input type="text" placeholder="Search Here" name="q" />
 	
 == jQuery
 
-	$('#search').tabularosa();
+	$.html5support();
