@@ -13,7 +13,7 @@ $.fn.tabularosa = function(value) {
 	return this.each(function() {
 		// this acurately tests for placeholder compliance
 		// tested in Firefox, Safari and Chrome
-		if (this.placeholder) return;
+		if (this.placeholder && !$.browser.msie) return;
 		
 		if (!value) value = $(this).attr(attribute);
 		if (!value) return; // do nothing if we have no value to set
