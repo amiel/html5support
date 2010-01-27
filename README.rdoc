@@ -1,8 +1,8 @@
-= HTML 5 Support
+= HTML5 Support
 
-Support certain HTML 5 attributes with javascript, but only if the browser doesn't already support them.
+The aim of HTML5 is to seamlessly provide support an extremely lightweight plugin for a few commonly used html5 attributes for browsers that don't already support them.
 
-Currently supports the placeholder attribute and the autofocus attribute.
+HTML5 Support currently supports the placeholder attribute and the autofocus attribute.
 
 == Example
 
@@ -11,6 +11,26 @@ Currently supports the placeholder attribute and the autofocus attribute.
 	<input type="text" autofocus />
 	<input type="text" placeholder="Search Here" name="q" />
 	
-== jQuery
+=== jQuery
 
-	$.html5support();
+  $(document).ready(function() {
+	  $.html5support();
+	  
+	  // or you can also run only support for what you want
+	  $.placeholder();
+	  // - or -
+	  $.autofocus();
+	});
+
+=== CSS
+  
+Use this CSS if you would like your placeholder text to show up grey in browsers that do not natively support placeholder.
+
+  .placeholder{ color: #888; }
+
+== TODO
+
+Support could be added for more HTML5 features. Ideas:
+
+* <input pattern="/regex/" />
+

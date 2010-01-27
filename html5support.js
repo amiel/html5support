@@ -16,8 +16,8 @@ var HTML5Support = {};
 	placeholder_klass = placeholder_attribute;
 	
 	// public functions
-	$.extend(HTML5Support, { // should we cache this?
-		supports_attribute: function(attribute, type) {
+	$.extend(HTML5Support, {
+		supports_attribute: function(attribute, type) { // should we memoize this?
 			return !!(attribute in document.createElement(type || 'input'));
 		}
 	});
