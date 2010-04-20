@@ -36,13 +36,36 @@ var HTML5Support = (function($){
 			};
 		self.focus(clear_value).blur(set_value).blur();
 	}
+	
+	// this one is sort of hacky
+	function password_tabularosa() {
+        var self = $(this),
+            value = self.attr(placeholder_attribute),
+            // setting the type attribute seems to work when the element is not in the dom (at least on firefox so far)
+            placeholder_input = self.clone().attr('type', 'text').attr('id', '').val(value).addClass(placeholder_klass).css('display', 'none'),
+            set_value = function() {
+                if ($.trim(self.val()) == '') {
+                    placeholder_input.show();
+					self.hide();
+                }
+            },
+            clear_value = function() {
+                placeholder_input.hide();
+                self.show().focus();
+            };
+        self.after(placeholder_input);
+        placeholder_input.focus(clear_value).blur(set_value);
+        self.blur(set_value).blur();
+	}
 
 
 	// jquery plugins
 	
 	$.fn.placeholder = function(value) {
 		if (h5.supports_attribute('placeholder')) return this;
-		return this.each(tabularosa);
+		return this.each(function() {
+		    ($(this).attr('type') == 'password') ? password_tabularosa.apply(this) : tabularosa.apply(this);
+		});
 	};
 	
 	$.fn.autofocus = function() {

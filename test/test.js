@@ -37,6 +37,26 @@ $(document).ready(function() {
 		});
 	}
 	
+	
+	
+	module("Password placeholder");
+	if (HTML5Support.supports_attribute('placeholder')) {
+	    test("with placeholder support", function() {
+	        var input = $('#password_field');
+	        equal(3, $('#test_form input').length, "sanity check, we should have 3 input fields");
+	        input.placeholder();
+	        equal(3, $('#test_form input').length, "there should still be 3 input fields");
+	    });
+	} else {
+	    test("without placeholder support", function() {
+	        var input = $('#password_field');
+	        equal(3, $('#test_form input').length, "sanity check, we should have 3 input fields");
+	        input.placeholder();
+	        equal(4, $('#test_form input').length, "there should still be 3 input fields");
+	        ok(!input.is(':visible'), 'the input field should have been hidden');
+	    });
+	}
+	
 	module("autofocus attribute");
 	if (HTML5Support.supports_attribute('autofocus')) {
 		test("with autofocus support", function() {
@@ -63,5 +83,5 @@ $(document).ready(function() {
 			ok(input_has_been_focused, 'input should have been focused on call to autofocus');
 		});
 	}
-	
+
 });
