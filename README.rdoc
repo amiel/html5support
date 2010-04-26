@@ -3,6 +3,7 @@
 The aim of HTML5 is to seamlessly provide support an extremely lightweight plugin for a few commonly used html5 attributes for browsers that don't already support them.
 
 HTML5 Support currently supports the placeholder attribute and the autofocus attribute.
+HTML5 Also supports type="password" fields, by special casing them, and swapping elements.
 
 == Example
 
@@ -10,6 +11,7 @@ HTML5 Support currently supports the placeholder attribute and the autofocus att
 	
 	<input type="text" autofocus />
 	<input type="text" placeholder="Search Here" name="q" />
+	<input type="password" placeholder="Password" name="pass" />
 	
 === jQuery
 
