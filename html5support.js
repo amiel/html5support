@@ -25,7 +25,14 @@ var HTML5Support = (function($){
 	// private functions
 	function tabularosa() {
 		var self = $(this),
-			value = self.attr(placeholder_attribute),
+      // I've added three unprintable invisible characters to the end here. 
+      // That indicates without a doubt that the value in the box was put
+      // there as a placeholder and not by the user.  This is great for 
+      // situations when the placeholder might be "USA" and the user enters
+      // the string "USA", and it disappears and gets a placeholder class. 
+      // I tried fixing it the right way, but that didn't seem to work across
+      // refreshes in firefox. 
+			value = self.attr(placeholder_attribute) + "\u2064\u2064\u2064",
 			set_value = function() {
 				if ($.trim(self.val()) == '' || self.val() == value)
 					self.val(value).addClass(placeholder_klass);
