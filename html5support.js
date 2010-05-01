@@ -32,7 +32,7 @@ var HTML5Support = (function($){
       // the string "USA", and it disappears and gets a placeholder class. 
       // I tried fixing it the right way, but that didn't seem to work across
       // refreshes in firefox. 
-			value = self.attr(placeholder_attribute) + "\u2064\u2064\u2064",
+			value = self.attr(placeholder_attribute) + "\u00A0\u00A0\u00A0",
 			set_value = function() {
 				if ($.trim(self.val()) == '' || self.val() == value)
 					self.val(value).addClass(placeholder_klass);

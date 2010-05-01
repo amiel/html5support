@@ -33,7 +33,7 @@ $(document).ready(function() {
 		
 			input.placeholder();
 			equal(input[0].className, "placeholder");
-			equal(input.val(), "foobar\u2064\u2064\u2064");
+			equal(input.val(), "foobar\u00A0\u00A0\u00A0");
 		});
 	}
 	
