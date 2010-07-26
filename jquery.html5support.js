@@ -1,5 +1,5 @@
 /*
- * html5support.js
+ * http://github.com/amiel/html5support
  * Amiel Martin
  * 2010-01-26
  *
