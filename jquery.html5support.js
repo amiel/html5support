@@ -48,8 +48,7 @@ var HTML5Support = (function($){
 	function password_tabularosa() {
         var self = $(this),
             value = self.attr(placeholder_attribute),
-            // setting the type attribute seems to work when the element is not in the dom (at least on firefox so far)
-            placeholder_input = self.clone().attr('type', 'text').attr('id', '').val(value).addClass(placeholder_klass).css('display', 'none'),
+            placeholder_input = $('<input type="text">').val(value).addClass(placeholder_klass).addClass(self.attr('class')).css('display', 'none'),
             set_value = function() {
                 if ($.trim(self.val()) == '') {
                     placeholder_input.show();
