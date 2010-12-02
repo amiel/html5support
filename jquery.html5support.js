@@ -60,7 +60,7 @@ var HTML5Support = (function($){
                 self.show().focus();
             };
         self.after(placeholder_input);
-        placeholder_input.focus(clear_value).blur(set_value);
+        placeholder_input.focus(clear_value);
         self.blur(set_value).blur();
 	}
 
