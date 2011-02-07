@@ -36,3 +36,7 @@ Support could be added for more HTML5 features. Ideas:
 
 * <input pattern="/regex/" />
 
+== License
+
+HTML5 Support is licensed under the MIT License. See the MIT-License.txt file for full details.
+
