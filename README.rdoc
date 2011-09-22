@@ -34,7 +34,7 @@ Use this CSS if you would like your placeholder text to show up grey in browsers
 
 Support could be added for more HTML5 features. Ideas:
 
-* `<input pattern="/regex/" />`
+* <input pattern="/regex/" />
 
 == License
 
