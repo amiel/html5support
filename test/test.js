@@ -29,7 +29,7 @@ $(document).ready(function() {
   } else {
     test("without placeholder support", function() {
       var input = $('#with_placeholder'),
-      expected_placeholder_value = $.browser.msie ? "foobar" : undefined;
+          expected_placeholder_value = $.browser.msie ? "foobar" : undefined;
       equal(input[0].placeholder, expected_placeholder_value, "elements placeholder accessor should be undefined");
 
       input.placeholder();
@@ -44,14 +44,14 @@ $(document).ready(function() {
   if (HTML5Support.supports_attribute('placeholder')) {
     test("with placeholder support", function() {
       var input = $('#password_field'),
-      n_fields = $('#test_form input').length;
+          n_fields = $('#test_form input').length;
       input.placeholder();
       equal($('#test_form input').length, n_fields, "expected the number of fields not to change");
     });
   } else {
     test("without placeholder support", function() {
       var input = $('#password_field'),
-      n_fields = $('#test_form input').length;
+          n_fields = $('#test_form input').length;
 
       input.placeholder();
 
@@ -73,7 +73,7 @@ $(document).ready(function() {
 
     test("without placeholder support and with already a value in the password field", function() {
       var input = $('#password_with_value'),
-      n_fields = $('#test_form input').length;
+          n_fields = $('#test_form input').length;
 
       input.placeholder();
 
@@ -104,7 +104,7 @@ $(document).ready(function() {
   if (HTML5Support.supports_attribute('autofocus')) {
     test("with autofocus support", function() {
       var input = $('#autofocus_test'),
-      input_has_been_focused = false;
+          input_has_been_focused = false;
 
       input.focus(function() {
         input_has_been_focused = true;
@@ -116,7 +116,7 @@ $(document).ready(function() {
   } else {
     test("without placeholder support", function() {
       var input = $('#autofocus_test'),
-      input_has_been_focused = false;
+          input_has_been_focused = false;
 
       input.focus(function() {
         input_has_been_focused = true;
@@ -125,6 +125,19 @@ $(document).ready(function() {
       input.autofocus();
       ok(input_has_been_focused, 'input should have been focused on call to autofocus');
     });
+
+    test("without placeholder support with the full attribute specifier", function() {
+      var input = $('#autofocus_attr_test'),
+          input_has_been_focused = false;
+
+      input.focus(function() {
+        input_has_been_focused = true;
+      });
+
+      input.autofocus();
+      ok(input_has_been_focused, 'input should have been focused on call to autofocus');
+    });
+
   }
 
 });
