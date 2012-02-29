@@ -8,27 +8,27 @@ HTML5 Also supports type="password" fields, by special casing them, and swapping
 == Example
 
 === HTML
-	
-	<input type="text" autofocus />
-	<input type="text" placeholder="Search Here" name="q" />
-	<input type="password" placeholder="Password" name="pass" />
-	
+
+    <input type="text" autofocus />
+    <input type="text" placeholder="Search Here" name="q" />
+    <input type="password" placeholder="Password" name="pass" />
+
 === jQuery
 
-  $(document).ready(function() {
-	  $.html5support();
-	  
-	  // or you can also run only support for what you want
-	  $.placeholder();
-	  // - or -
-	  $.autofocus();
-	});
+    $(document).ready(function() {
+      $.html5support();
+
+      // or you can also run only support for what you want
+      $.placeholder();
+      // - or -
+      $.autofocus();
+    });
 
 === CSS
-  
+
 Use this CSS if you would like your placeholder text to show up grey in browsers that do not natively support placeholder.
 
-  .placeholder{ color: #888; }
+    .placeholder{ color: #888; }
 
 == TODO
 
