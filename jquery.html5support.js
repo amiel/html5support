@@ -83,7 +83,7 @@ var HTML5Support = (function($){
     };
 
 
-    $.autofocus = function() { $('[autofocus]').autofocus(); };
+    $.autofocus = function() { $('[autofocus]:visible').autofocus(); };
     $.placeholder = function() { $('['+placeholder_attribute+']').placeholder(); };
 
     $.html5support = function() { $.autofocus(); $.placeholder(); };
