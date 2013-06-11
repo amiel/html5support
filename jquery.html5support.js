@@ -38,8 +38,10 @@ var HTML5Support = (function($){
             self.val(value).addClass(placeholder_klass);
         },
         clear_value = function() {
-            if (self.val() == value)
-            self.val('').removeClass(placeholder_klass);
+            if (self.val() == value) {
+                self.val('');
+            }
+            self.removeClass(placeholder_klass);
         };
         self.focus(clear_value).blur(set_value).blur();
     }
